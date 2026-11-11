@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>sutra — an Excel formula engine in Gleam</title>
+  <meta name="description" content="A spreadsheet formula engine written in Gleam: 127 Excel functions, incremental recalculation, dynamic arrays and cycle detection, running here in your browser.">
+  <meta property="og:title" content="sutra — an Excel formula engine in Gleam">
+  <meta property="og:description" content="127 Excel functions, incremental recalculation, dynamic arrays and cycle detection. One codebase on the BEAM and in your browser.">
+  <meta property="og:image" content="og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ffaff3'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' text-anchor='middle' fill='%23151515'%3Efx%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="logo">fx</span>
+      <div>
+        <h1>sutra <span class="deva">सूत्र</span></h1>
+        <p class="tagline">An Excel formula engine written in Gleam, running in your browser. The same code runs on the BEAM.</p>
+      </div>
+    </div>
+    <nav>
+      <label class="sample-pick">Workbook
+        <select id="sample"></select>
+      </label>
+      <a class="gh" href="https://github.com/SAMARTHJAISWAL/sutra">GitHub</a>
+    </nav>
+  </header>
+
+  <p id="note" class="note"></p>
+
+  <main>
+    <section class="sheet-area">
+      <div class="formula-bar">
+        <span id="address" class="address">A1</span>
+        <span class="fx">fx</span>
+        <input id="input" spellcheck="false" autocomplete="off" aria-label="Cell contents">
+      </div>
+      <div id="parse" class="parse" hidden></div>
+      <div class="grid-wrap" id="gridwrap">
+        <table id="grid" class="grid" tabindex="0" aria-label="Spreadsheet"></table>
+      </div>
+      <div class="tabs" id="tabs"></div>
+    </section>
+
+    <aside class="side">
+      <section class="panel" id="stats">
+        <h2>Last change</h2>
+        <p id="statline" class="statline">Loading…</p>
+      </section>
+      <section class="panel">
+        <h2>Selected cell</h2>
+        <dl class="facts">
+          <dt>Value</dt><dd id="value"></dd>
+          <dt>Reads</dt><dd id="reads"></dd>
+          <dt>Read by</dt><dd id="readby"></dd>
+        </dl>
+        <details id="explain-box">
+          <summary>Where this value comes from</summary>
+          <pre id="explain"></pre>
+        </details>
+      </section>
+      <section class="panel">
+        <h2>Functions <span id="fcount" class="muted"></span></h2>
+        <input id="fsearch" class="fsearch" placeholder="Search, e.g. lookup" spellcheck="false">
+        <ul id="flist" class="flist"></ul>
+      </section>
+    </aside>
+  </main>
+
+  <footer>
+    <span>Keys: arrows move · type or Enter to edit · Delete clears · Tab and Enter commit.</span>
+    <span>Source: <a href="https://github.com/SAMARTHJAISWAL/sutra">github.com/SAMARTHJAISWAL/sutra</a> · MIT</span>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

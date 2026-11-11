@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    name: test (${{ matrix.target }}, OTP ${{ matrix.otp }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { target: erlang, otp: "28" }
+          - { target: erlang, otp: "27" }
+          - { target: javascript, otp: "28" }
+    steps:
+      - uses: actions/checkout@v7
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: ${{ matrix.otp }}
+          gleam-version: "1.19.2"
+      - uses: actions/setup-node@v7
+        if: matrix.target == 'javascript'
+        with:
+          node-version: "24"
+      - run: gleam deps download
+      - run: gleam format --check src test
+      - run: gleam test --target ${{ matrix.target }}
+      - name: CLI smoke test
+        run: |
+          gleam run --target ${{ matrix.target }} -- eval fixtures/sales.csv fixtures/targets.csv fixtures/summary.csv
+          gleam run --target ${{ matrix.target }} -- check fixtures/loan.csv
+          ! gleam run --target ${{ matrix.target }} -- check fixtures/broken.csv
+
+  web:
+    name: browser demo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: "28"
+          gleam-version: "1.19.2"
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+      - run: ./web/build.sh
+      - name: The built site computes the sales sample
+        run: |
+          node --input-type=module -e '
+            const web = await import("./_site/lib/sutra/sutra/web.mjs");
+            const { toList } = await import("./_site/lib/sutra/gleam.mjs");
+            const { samples } = await import("./_site/samples.js");
+            const s = samples.find((x) => x.id === "sales");
+            const cells = s.sheets.flatMap((sh) => sh.cells.map(([c, r, t]) => [sh.name, c, r, t]));
+            const [book] = web.load(toList(s.sheets.map((x) => x.name)), toList(cells));
+            const total = JSON.parse(web.inspect(book, "summary", 1, 5)).value;
+            console.log("summary!B6 =", total);
+            if (total !== "62975") process.exit(1);
+          '

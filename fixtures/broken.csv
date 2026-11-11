@@ -1,0 +1,10 @@
+Item,Value
+Ratio,=10/B5
+Lookup,"=VLOOKUP(""Zed"",A2:A3,1,FALSE)"
+Loop,=B4+1
+Zero,0
+Typo,=SUMM(B2:B3)
+Unclosed,=SUM(B2
+Spill,=SEQUENCE(3)
+Blocker,x
+Downstream,=B2*2

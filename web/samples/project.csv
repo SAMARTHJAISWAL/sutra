@@ -1,0 +1,14 @@
+Project cash flows,,
+Year,Cash flow,Discounted
+0,-50000,=B3/(1+$B$11)^A3
+1,12000,=B4/(1+$B$11)^A4
+2,15000,=B5/(1+$B$11)^A5
+3,18000,=B6/(1+$B$11)^A6
+4,21000,=B7/(1+$B$11)^A7
+5,24000,=B8/(1+$B$11)^A8
+,,
+,,
+Discount rate,9%,
+NPV,"=NPV(B11,B4:B8)+B3",=SUM(C3:C8)
+IRR,=IRR(B3:B8),"=TEXT(B13,""0.0%"")"
+Profitable?,"=IF(B12>0,""Yes, by ""&TEXT(B12,""#,##0""),""No"")",

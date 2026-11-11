@@ -1,0 +1,15 @@
+name = "sutra"
+version = "0.1.0"
+description = "An Excel formula engine: 127 functions, incremental recalculation, dynamic arrays and cycle detection, on the BEAM and in JavaScript."
+licences = ["MIT"]
+repository = { type = "github", user = "SAMARTHJAISWAL", repo = "sutra" }
+links = [{ title = "Live demo", href = "https://samarthjaiswal.github.io/sutra/" }]
+gleam = ">= 1.11.0"
+
+[dependencies]
+gleam_stdlib = ">= 1.0.0 and < 2.0.0"
+argv = ">= 1.1.0 and < 2.0.0"
+simplifile = ">= 2.7.0 and < 3.0.0"
+
+[dev_dependencies]
+gleeunit = ">= 1.0.0 and < 2.0.0"

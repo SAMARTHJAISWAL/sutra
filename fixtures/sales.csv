@@ -1,0 +1,13 @@
+Date,Region,Rep,Product,Units,Price,Revenue
+2024-07-03,North,Asha,Masala chai,120,40,=E2*F2
+2024-07-05,South,Ravi,Filter coffee,80,55,=E3*F3
+2024-07-09,East,Meera,Masala chai,150,40,=E4*F4
+2024-07-12,West,Kabir,Cold brew,60,90,=E5*F5
+2024-07-18,North,Isha,Filter coffee,95,55,=E6*F6
+2024-07-21,South,Ravi,Masala chai,130,40,=E7*F7
+2024-08-02,East,Meera,Cold brew,45,90,=E8*F8
+2024-08-06,West,Kabir,Masala chai,110,40,=E9*F9
+2024-08-11,North,Asha,Cold brew,70,90,=E10*F10
+2024-08-15,South,Ravi,Filter coffee,105,55,=E11*F11
+2024-08-22,East,Meera,Filter coffee,85,55,=E12*F12
+2024-08-28,West,Kabir,Cold brew,75,90,=E13*F13

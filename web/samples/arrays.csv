@@ -1,0 +1,17 @@
+Score,,Sorted,Above 70,Distinct,Grade
+82,,"=SORT(A2:A9,1,-1)","=FILTER(A2:A9,A2:A9>70)",=UNIQUE(A2:A9),"=IF(A2:A9>=80,""A"",IF(A2:A9>=60,""B"",""C""))"
+45,,,,,
+91,,,,,
+67,,,,,
+73,,,,,
+58,,,,,
+91,,,,,
+88,,,,,
+,,,,,
+Average,=AVERAGE(A2:A9),,,,
+At least 70,"=COUNTIF(A2:A9,"">=70"")",,,,
+Top score,=MAX(C2:C9),,,,
+,,,,,
+Try it,"Type anything into D4: the FILTER array has no room and shows #SPILL!. Clear it and the array spills again.",,,,
+Loop,=B17+1,,,,
+,=B16*2,,,,
