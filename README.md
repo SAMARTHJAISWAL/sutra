@@ -1,7 +1,7 @@
 # sutra
 
 [![CI](https://github.com/SAMARTHJAISWAL/sutra/actions/workflows/ci.yml/badge.svg)](https://github.com/SAMARTHJAISWAL/sutra/actions/workflows/ci.yml)
-[![Live demo](https://img.shields.io/badge/demo-live-ffaff3)](https://samarthjaiswal.github.io/sutra/)
+[![Live demo](https://img.shields.io/badge/demo-live-ffaff3)](https://sutra-amber.vercel.app/)
 [![Gleam](https://img.shields.io/badge/Gleam-1.19-ffaff3?logo=gleam&logoColor=black)](https://gleam.run)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
@@ -13,10 +13,11 @@ and in JavaScript (browsers, Node).
 
 *Sutra* (सूत्र) is the Hindi word for a formula.
 
-**[Try it in your browser →](https://samarthjaiswal.github.io/sutra/)**
+**[Try it in your browser →](https://sutra-amber.vercel.app/)**
 The demo is the Gleam engine compiled to JavaScript, with no server.
+It is also mirrored on [GitHub Pages](https://samarthjaiswal.github.io/sutra/).
 
-[![The demo: a spreadsheet with SORT, FILTER, UNIQUE and IF spilling into neighbouring cells](web/og.png)](https://samarthjaiswal.github.io/sutra/)
+[![The demo: a spreadsheet with SORT, FILTER, UNIQUE and IF spilling into neighbouring cells](web/og.png)](https://sutra-amber.vercel.app/)
 
 ## Why
 

@@ -3,7 +3,7 @@ version = "0.1.0"
 description = "An Excel formula engine: 127 functions, incremental recalculation, dynamic arrays and cycle detection, on the BEAM and in JavaScript."
 licences = ["MIT"]
 repository = { type = "github", user = "SAMARTHJAISWAL", repo = "sutra" }
-links = [{ title = "Live demo", href = "https://samarthjaiswal.github.io/sutra/" }]
+links = [{ title = "Live demo", href = "https://sutra-amber.vercel.app/" }]
 gleam = ">= 1.11.0"
 
 [dependencies]
